@@ -16,9 +16,11 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git clone https://huggingface.co/spaces/BashirG/SkipLegalProject space_repo
+          
+          git clone https://__token__:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/BashirG/SkipLegalProject space_repo
           rsync -av --exclude='.git' ./ space_repo/
+          
           cd space_repo
           git add .
           git commit -m "Sync from GitHub" || echo "No changes to commit"
-          git push https://__token__:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/BashirG/SkipLegalProject HEAD:main
+          git push
