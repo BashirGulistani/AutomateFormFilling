@@ -6,16 +6,19 @@ on:
       - main
 
 jobs:
-  sync:
+  deploy-to-hf-space:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Checkout main repo
+        uses: actions/checkout@v2
+
+      - name: Push to Hugging Face Space
         run: |
-          pip install -r requirements.txt  # Or any other package manager
-      - name: Sync with Hugging Face Space
-        uses: huggingface-sync-action@main
-        with:
-          token: ${{ secrets.HF_TOKEN }} # Use the secret token
-          repo_id: BashirG/SkipLegalProject # Replace with your Space's repo ID
-          branch: main
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git clone https://huggingface.co/spaces/BashirG/SkipLegalProject space_repo
+          rsync -av --exclude='.git' ./ space_repo/
+          cd space_repo
+          git add .
+          git commit -m "Sync from GitHub" || echo "No changes to commit"
+          git push https://__token__:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/BashirG/SkipLegalProject HEAD:main
