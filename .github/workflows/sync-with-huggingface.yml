@@ -1,0 +1,21 @@
+name: Sync with Hugging Face Space
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # Or any other package manager
+      - name: Sync with Hugging Face Space
+        uses: huggingface-sync-action@main
+        with:
+          token: ${{ secrets.HF_TOKEN }} # Use the secret token
+          repo_id: BashirG/SkipLegalProject # Replace with your Space's repo ID
+          branch: main
