@@ -1,0 +1,22 @@
+{
+  "Petitioner": {
+    "Information": {
+      "AlienRegistrationNumber": "{{AlienRegistrationNumber}}",
+      "USCISAccountNumber": "{{USCISAccountNumber}}",
+      "SocialSecurityNumber": "{{SocialSecurityNumber}}"
+    },
+    "Name": {
+      "FamilyName": "{{FamilyName}}",
+      "GivenName": "{{GivenName}}",
+      "MiddleName": "{{MiddleName}}"
+    },
+    "BirthPlace": {
+      "CityOrTown": "{{CityOrTown}}",
+      "Country": "{{Country}}"
+    },
+    "DoB": "{{DateOfBirth}}",
+    "Sex": "{{Sex}}"
+  }
+}
+
+
