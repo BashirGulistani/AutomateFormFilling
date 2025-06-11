@@ -1,0 +1,10 @@
+gradio>=4.24.0
+openai>=1.0.0
+haystack-ai
+python-docx  # if used to parse DOCX files
+fpdf  # if used for PDF generation
+pillow  # for image processing
+python-dotenv  # to manage API keys securely
+PyMuPDF  # for working with PDF content (fitz)
+pdfplumber  # for text extraction from PDFs
+pytesseract  # OCR, if used in DocumentProcessor
