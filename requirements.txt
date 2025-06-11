@@ -7,4 +7,4 @@ pillow  # for image processing
 python-dotenv  # to manage API keys securely
 PyMuPDF  # for working with PDF content (fitz)
 pdfplumber  # for text extraction from PDFs
-pytesseract  # OCR, if used in DocumentProcessor
+pytesseract 
